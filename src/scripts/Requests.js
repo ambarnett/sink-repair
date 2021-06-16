@@ -1,4 +1,4 @@
-import { getRequests } from "./dataAccess";
+import { getRequests } from "./dataAccess.js";
 
 export const Requests = () => {
     const requests = getRequests() // grab the local state of the requests data
