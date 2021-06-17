@@ -31,7 +31,7 @@ mainContainer.addEventListener(
                 to the `completions` resource for your API. Send the
                 completion object as a parameter.
              */
-
+             
         }
     }
 )
@@ -50,7 +50,7 @@ export const Requests = () => {
                         ${
                                 plumbers.map(
                                     plumber => {
-                                        return `<option value="${request.id}--${plumber.id}">${plumber.name}</option>`
+                                        return `<option value="${req.id}--${plumber.id}">${plumber.name}</option>`
                                     }
                                 ).join("")
                             }
