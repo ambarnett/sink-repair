@@ -31,6 +31,9 @@ export const getRequests = () => {
 export const getPlumbers = () => { 
     return [...applicationState.plumbers] 
 }
+export const getCompletions = () => {
+    return [...applicationState.completions]
+}
 //#######################################################################################
 export const sendRequest = (userServiceRequest) => {
     const fetchOptions = {
@@ -58,6 +61,7 @@ export const saveCompletion = (userCompletion) => {
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            
         })
 }
 //#######################################################################################

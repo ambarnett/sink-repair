@@ -1,4 +1,4 @@
-import { deleteRequest, getRequests, getPlumbers, saveCompletion } from "./dataAccess.js";
+import { deleteRequest, getRequests, getPlumbers, saveCompletion, getCompletions } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 
@@ -8,12 +8,9 @@ mainContainer.addEventListener("click", click => {
         deleteRequest(parseInt(requestId))
     }
 })
-mainContainer.addEventListener(
-    "change",
-    (event) => {
+mainContainer.addEventListener("change",(event) => {
         if (event.target.id === "plumbers") {
             const [requestId, plumberId] = event.target.value.split("--")
-
             /*
                 This object should have 3 properties
                    1. requestId
@@ -21,9 +18,9 @@ mainContainer.addEventListener(
                    3. date_created
             */
             const completion = {
-                requestId: request,
-                plumberId: plumber,
-                date_created: new Date()
+                requestId: parseInt(requestId),
+                plumberId: parseInt(plumberId),
+                date_created: Date.now() //using date.now() so the date will be a numeric value that I can compare to another when sorting completed jobs
              }
 
             /*
@@ -39,11 +36,18 @@ mainContainer.addEventListener(
 export const Requests = () => {
     const requests = getRequests() // grab the local state of the requests data
     const plumbers = getPlumbers()
+    const completions = getCompletions()
+    console.log(completions, requests)
     let requestHTML = `
         <ul>
             ${
                 requests.map(req => {
-                    return `<li>
+                    const findComplete = completions.find( (completion) =>
+                        { return completion.requestId === req.id }
+                    ) 
+                    console.log(findComplete)
+                    if(!findComplete){
+                    return `<li class="serviceReq">
                         ${req.description}
                         <select class="plumbers" id="plumbers">
                         <option value="">Choose</option>
@@ -58,7 +62,14 @@ export const Requests = () => {
                             <button class="request__delete" id="request--${req.id}">
                             Delete
                             </button>
-                        </li>`
+                        </li>`}
+                        else {
+                            return `<li class="completedRequest">${req.description}
+                            
+                                <button class="request__delete" id="request--${req.id}">
+                                Delete
+                                </button></li>`
+                        }
                 }).join("")
             }
         </ul> 
