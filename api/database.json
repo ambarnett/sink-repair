@@ -1,20 +1,22 @@
 {
-  "plumbers": [],
+  "plumbers": [
+    {
+      "id": 1,
+      "name": "Maude"
+    },
+    {
+      "id": 2,
+      "name": "Merle"
+    }
+  ],
   "completions": [],
   "requests": [
     {
-      "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2021-08-27"
-    },
-    {
-      "description": "leak in kitchen",
-      "address": "100 lane way",
-      "budget": "955.32",
-      "neededBy": "2021-06-29",
-      "id": 2
+      "description": "leak in bathroom",
+      "address": "100 road way",
+      "budget": "500",
+      "neededBy": "2021-06-25",
+      "id": 1
     }
   ]
 }

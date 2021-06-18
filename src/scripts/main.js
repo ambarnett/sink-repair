@@ -1,4 +1,4 @@
-import { fetchRequests } from "./dataAccess.js"
+import { fetchRequests, fetchPlumbers } from "./dataAccess.js"
 import { SinkRepair } from "./SinkRepair.js"
 
 
@@ -17,7 +17,12 @@ const render = () => {
             mainContainer.innerHTML = SinkRepair()
         }
     )
+    fetchPlumbers().then(
+        () => {
+            mainContainer.innerHTML = SinkRepair()
+        }
+    )
 }
-
+// fetchRequests(render)
 render()
 
