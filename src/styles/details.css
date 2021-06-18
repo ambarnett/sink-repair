@@ -14,3 +14,14 @@
     color: rgb(9, 24, 24);
     font-size: 17px;
 }
+.completedRequest{
+    background-color: rgba(255, 0, 0, 0.589);
+    max-width: fit-content;
+    border: solid;
+    padding: 0 0 0 3px;
+}
+.serviceReq{
+    border: solid;
+    max-width: fit-content;
+    padding: 0 0 0 3px;
+}
