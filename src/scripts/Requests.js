@@ -1,4 +1,4 @@
-import { deleteRequest, getRequests, getPlumbers } from "./dataAccess.js";
+import { deleteRequest, getRequests, getPlumbers, saveCompletion } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 
@@ -31,7 +31,7 @@ mainContainer.addEventListener(
                 to the `completions` resource for your API. Send the
                 completion object as a parameter.
              */
-             
+            saveCompletion(completion)
         }
     }
 )
